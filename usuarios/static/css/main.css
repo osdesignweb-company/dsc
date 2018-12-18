@@ -110,7 +110,7 @@ body {
 
 }
 .container {
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
 }
 h1 {
@@ -136,17 +136,17 @@ a {
 
 @media only screen and (min-width:480px){
     .container{
-        width: 95%;
+        padding: 0 5px;
     }
 }
 @media only screen and (min-width:768px){
-    .container{
-        width: 90%;
-    }
+    /*.container{
+        width: 98%;
+    }*/
 }
 @media only screen and (min-width:992px){
     .container{
-        width: 90%;
+        width: 95%;
         max-width: 1100px;
     }
 }
@@ -173,22 +173,24 @@ div.top-header {
     width: 100%;
 }
 .top-header-logo {
-    border-bottom: solid 2px #069169;
-    border-bottom: solid 2px rgb(6,145,105);
+    /*border-bottom: solid 2px #069169;
+    border-bottom: solid 2px rgb(6,145,105);*/
+    width: 100%;
+    padding-left: 15px;
 }
 .logo-coldeportes {
     display: none;
 }
 .logo-sind{
-    width: 100%;
+    /*width: 100%;*/
     margin: 0 auto 0 auto !important;
 }
 .logo-sind img{
     max-width: 300px;
     height: 40px;
-    float: center;
+    /*float: center;*/
     display: block;
-    margin: 10px auto 10px auto;
+    margin: 10px 0 10px 0;
 }
 .top-header-info {
     /*display: inline-block;*/
@@ -198,8 +200,10 @@ div.top-header {
 }
 
 .form, .ingreso {
-    width: 50%;
+    width: 100%;
     display: block;
+    /*margin-left:5%;*/
+    padding-left: 15px;
 }
 
 .ingreso input {
@@ -210,7 +214,7 @@ div.top-header {
     font-family: 'Work Sans', sans-serif;
     color: #fff;
     margin-top:5px;
-    margin-left:10%;
+    /*margin-left:5%;*/
     border: 1px solid #fff;
 }
 .ingreso input:hover {
@@ -257,10 +261,49 @@ div.menu-movil .burger i{
     div.menu-movil {
         width: 60px;
     }
+    /*.logo-sind img{
+        margin-left: 5%;
+    }*/
+    .top-header-logo {
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form, .ingreso {
+        max-width: 540px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /*margin-left:5%;*/
+    }
 }
 @media only screen and (min-width:768px){
     div.menu-movil{
       display: none;
+    }
+    .top-header-logo {
+        max-width: 720px;
+    }
+    .form, .ingreso {
+        max-width: 720px;
+        /*margin-left:5%;*/
+    }    
+}
+@media only screen and (min-width:992px){
+    /*.ingreso input {
+        margin-left:10%;
+    }*/
+    /*.logo-sind img{
+        margin-left: 10%;
+    }*/
+    .top-header-logo {
+        max-width: 1100px;
+        width: 95%;
+    }
+    .form, .ingreso {
+        max-width: 1100px;
+        width: 95%;
+        /*margin-left:5%;*/
     }
 }
 
@@ -290,7 +333,7 @@ nav.navegacion-principal ul::after {
     list-style: none;
 }**/
 nav.navegacion-principal ul li a{
-    padding: 10px 5%;
+    /*padding: 10px 5%;*/
     border-top: 1px solid #006850;
     display: block;
     width: 10%;
@@ -325,8 +368,10 @@ nav.navegacion-principal ul ul li a:hover {
     .navegador {
         display: block;
         position: absolute;
-        top: 47px;
-        left:60%;
+        top: 60px;
+        text-align: center;
+        width: 100%;
+        margin: 0px auto 0px auto;
     }
     nav.navegacion-principal ul{
         display: block !important;
@@ -341,7 +386,7 @@ nav.navegacion-principal ul ul li a:hover {
     }
 
     nav.navegacion-principal > ul > li{
-        float: right;
+        display: inline-block;
     }
     nav.navegacion-principal a{
         margin-right: 25px;
@@ -366,12 +411,15 @@ nav.navegacion-principal ul ul li a:hover {
     nav.navegacion-principal ul li a{
         font-size: 1.1em;
     }
+
 }
 
 /*----------Titulo-------------*/
 .titulo {
     width: 100%;
     margin: 130px auto 10px auto;
+    color: #7f7f7f;
+    color: rgb(127,127,127);
 }
 
 
@@ -487,10 +535,10 @@ div.bloque-gris {
 
     div.contenedor-bloques {
         box-sizing: border-box;
-	    display: flex;
-	    flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: space-around; 
-	    padding: 10px;
+        padding: 10px;
     }
 
     div.bloque-ecoimpulsa, div.bloque-nosotros,

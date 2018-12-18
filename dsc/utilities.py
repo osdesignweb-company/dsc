@@ -1,3 +1,4 @@
+# coding=utf-8
 import datetime 
 import unicodedata
 from datetimewidget.widgets import DateWidget, DateTimeWidget, TimeWidget
@@ -9,7 +10,33 @@ from django.db.models.query import QuerySet
 from django.template.loader import render_to_string
 from django.core.exceptions import ImproperlyConfigured
 from django.views.generic import TemplateView
-from .helpers import arrayfield_keys_to_values, create_column_defs_list
+from usuarios.models import Paises
+
+
+def arrayfield_keys_to_values(keys, choices):
+    values = []
+    for key, value in choices:
+        if key in keys:
+            values.append(value)
+    return values
+
+
+def create_column_defs_list(column_defs):
+    column_defs_list = []
+    for counter, column_def in enumerate(column_defs):
+        if type(column_def) == str:
+            column_defs_list.append({'title': column_def, 'targets': counter, 'orderable': 1, 'searchable': 1})
+        elif type(column_def) == dict:
+            column_def['targets'] = counter
+            column_def['orderable'] = column_def.get('orderable', 1)
+            column_def['searchable'] = column_def.get('searchable', 1)
+            column_defs_list.append(column_def)
+
+    return column_defs_list
+
+
+
+
 
 def MyDateWidget():
     return DateWidget(usel10n=False, bootstrap_version=3, options={'format': 'yyyy-mm-dd', 'startView':4, 'language':'es'})
@@ -303,6 +330,8 @@ class DatatablesListView(TemplateView):
             return JsonResponse(final_data)
         else:
             return super(DatatablesListView, self).get(request, *args, **kwargs)
+
+
 
 
 

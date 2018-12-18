@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.shortcuts import render
 
 # Create your views here.
@@ -8,7 +9,7 @@ from django.views.generic import CreateView, UpdateView, DetailView, View
 from django.contrib import messages
 from noticias.models import Noticia
 from noticias.forms import NoticiaCreateForm, NoticiaUpdateForm
-from dsc.utilities.datatables_tools import DatatablesListView
+from dsc.utilities import DatatablesListView
 
 
 class NoticiaCreateView(PermissionRequiredMixin, CreateView):

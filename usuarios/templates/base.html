@@ -1,27 +1,91 @@
 {%load staticfiles%}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Deporte Social Comunitario</title>
+    {% block meta %}
+    {% endblock %}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block titulo %}SIND - Deporte Social Comunitario{% endblock %}</title>
 
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    
+
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
   crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
-  <link rel="stylesheet" href="{% static 'css/main.css'%}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+    <script src="{% static 'plugins/jquery/jquery-1.9.1.min.js' %}"></script>
+
+    <!-- ================== CSS estilo adicional  ================== -->
+
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    {#<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">#}
+
+    <link href="{% static 'plugins/jquery-ui/themes/base/minified/jquery-ui.min.css' %}" rel="stylesheet" />
+    {% comment %}<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>{% endcomment %}
+
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet" />
+    <!--
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" />
+    -->
+    <link href="{% static 'css/style-responsive.min.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'css/theme/default.css' %}" rel="stylesheet" id="theme" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/personal.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/toastr/toastr.css' %}"/>
+    <link href="{% static 'plugins/ionicons/css/ionicons.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/select2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/jquery.datetimepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/css/base.css' %}" rel="stylesheet">
+    -->
+    <!-- ==================  CSS estilo adicional final ================== -->
+
+
+     <style type="text/css">
+        .select2-container--default .select2-selection--single .select2-selection__rendered{
+            font-size: 12px;
+        }
+        text {
+            font-family: 'Lato', sans-serif;
+        }
+        .select2{
+            width: 100% !important;
+        }
+        .not-active{
+            pointer-events: none;
+            cursor: default;
+            opacity: 0.5;
+        }
+        .loading{
+            display: none;
+        }
+        .not-active .loading{
+            display: inline-block;
+        }
+    </style>
+
+    {% block css %}
+    {% endblock %}
+
+
+
+
 </head>
-
-
-
 <body>
-	<div class="container">
+    <div class="container">
         <!--header-->
+
         <header class="site-header">
             
             <!--top header-->
@@ -34,12 +98,17 @@
                         <a href=""><img src="{% static 'img/sind-logo.PNG'%}" alt="logo sind"></a>
                     </div>
                 </div>
+
                 <div class="top-header-info"> 
                     <div class="ingreso">
-                        <form action="login">
-                            <input type="submit" value="Iniciar sesión" >
-                        </form>
+                            <form action="login">
+                                <input type="submit" value="Iniciar sesión" >
+                            </form>
+
                     </div>
+                    
+            
+                    
                     <div class="menu-movil clearfix">
                         <div class="burger">
                             <i class="fas fa-bars"></i>
@@ -50,6 +119,13 @@
                     </div>
                 </div>
              </div><!--fin top header-->
+            
+
+            
+                        
+                    
+
+        
 
             <!--Navegador-->
 
@@ -151,9 +227,16 @@
         
         <!--fin bloques de selección-->
         
+        <div id="content" class="content">
+            <ol class="migapan panel-center exo f-s-13" style="list-style: none">
+                {% block miga_pan %}
+                {% endblock %}
+            </ol>
         {% block cuerpo %}
+        
         {% endblock %}
   
+        </div>
         
         <!--inicio footer-->
         {% block footer %}
@@ -182,10 +265,40 @@
 
         </footer>
         <!--fin footer-->
-        {% endblock  %}
-        
-        
+        {% endblock  %}   
     </div>
+
+    <!--inclusion archivos que estaban en cabecera -->
+    <script src="{% static 'js/funciones_calculos/constantes.js' %}"></script>
+    <script src="{% static 'plugins/jquery/jquery-migrate-1.1.0.min.js' %}"></script>
+    <script src="{% static 'plugins/pace/pace.min.js' %}"></script>
+    <script type="text/javascript">
+        base = "{{STATIC_URL}}";
+    </script>
+
+    <!-- ================== BASE JavaScript ================== -->
+
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="{% static 'crossbrowserjs/html5shiv.js' %}"></script>
+        <script src="{% static 'crossbrowserjs/respond.min.js' %}"></script>
+        <script src="{% static 'crossbrowserjs/excanvas.min.js' %}"></script>
+    <![endif]-->
+    <script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-cookie/jquery.cookie.js' %}"></script>
+    <script src="{% static 'plugins/jquery-ui/ui/minified/jquery-ui.min.js' %}"></script>
+
+        <!-- ================== Final Javascript ================== -->
+
+    <script src="{% static 'js/apps.min.js' %}"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    <script src="{% static 'js/select2.min.js' %}"></script>
+    <script src="{% static 'js/jquery.datetimepicker.js' %}"></script>
+    <script src="{% static 'js/tooltip.js' %}"></script>
+
+    <script>
+        STATIC_URL = "{% static '' %}";
+    </script>
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
@@ -194,6 +307,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 
+
+    <script>
+        $(document).ready(function(){
+            $.each($("span.help-block:not(.has-error span)"),function(){
+                var bloqueActual = $(this);
+                nuevoElemento = bloqueActual.siblings("label");
+                nuevoElemento.after(" <span style='font-size:14px;color: #0044cc;'><i class='fa fa-question-circle add-tooltip' data-placement='right' data-toggle='tooltip' data-original-title='"+bloqueActual.text()+"'></i></span>");
+                bloqueActual.remove();
+            });
+        });
+    </script>
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $('[data-toggle=tooltip]').tooltip();
+            $("select.one").select2({
+                width: 'resolve'
+            });
+            $("select.many").select2({
+                multiple:true
+            });
+            $('.fecha').datetimepicker({
+                timepicker:false,
+                format:'Y-m-d',
+                formatDate:'Y-m-d',
+                lang: 'es',
+                closeOnDateSelect: true,
+                readonly: true,
+            });
+        });
+    </script>
+
+    <script src="{% static 'plugins/toastr/toastr.js' %}"></script>
+
+    <script>
+        {% for msg in messages %}
+            $(document).ready(function(){
+                    setTimeout(function() {
+                    toastr.options = {
+                        "closeButton": true,
+                        "progressBar": true,
+                        "showEasing": "swing"
+                    };
+                    toastr["{{ msg.tags }}"]("{{msg}}")
+                },500);
+
+            });
+        {% endfor %}
+    </script>
+
+    <script>
+        $('#menu_reporte_excel').on("click", function(){
+            $('#menu_reporte_excel').addClass('not-active');
+            var url = "#";
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success:function(data){
+                    if(data.response){
+                        location.href='{{ MEDIA_URL }}archivo/indicador_personas.xlsx';
+                    }else{
+                        console.log('error al generar excel');
+                    }
+                    $('#menu_reporte_excel').removeClass('not-active');
+                },
+                error: function(err){
+                    console.log(err);
+                    $('#menu_reporte_excel').removeClass('not-active');
+                }
+            });
+        });
+    </script>
 
 </body>
 

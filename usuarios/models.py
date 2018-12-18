@@ -11,6 +11,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from datetime import datetime
+import unicodedata
+
 
 
 
@@ -18,7 +20,7 @@ TIPO_IDENTIDAD = (
     (0,'Cédula de ciudadanía'),
     (1,'Cédula Extranjera'),
     (2, 'Pasaporte'),
-    (3, 'Tarjeta de ideantidad'),
+    (3, 'Tarjeta de identidad'),
     )
 
 TIPO_GENERO = (
@@ -102,6 +104,8 @@ class Departamentos(models.Model):
         db_table = 'departamentos'
 
 
+
+
 class DirectorioPersonas(models.Model):
     id_directorio = models.AutoField(primary_key=True)
     id_persona = models.ForeignKey('Personas', models.DO_NOTHING, db_column='id_persona')
@@ -179,17 +183,24 @@ class Paises(models.Model):
         managed = False
         db_table = 'paises'
 
+PAIS = []
+for i in range(len(Paises.objects.all().values('id_pais'))):
+    num = Paises.objects.all().values('id_pais')[i]['id_pais']
+    p =  Paises.objects.all().values('pais')[i]['pais']
+    PAIS.append((num.encode('ascii','ignore'),p.encode('ascii','ignore')))
+PAIS = tuple(PAIS)
 
 class Personas(models.Model):
-    id_persona = models.BigIntegerField(primary_key=True)
+    id_persona = models.BigIntegerField(primary_key=True,verbose_name='Cedula de ciudadanía')
     tipo_documento = models.SmallIntegerField(choices=TIPO_IDENTIDAD)
     nombre = models.TextField(max_length=25)
     primer_apellido = models.TextField()
     segundo_apellido = models.TextField()
     fecha_nacimiento = models.DateField(blank = False)
     sexo = models.SmallIntegerField(choices=TIPO_GENERO)
-    creado = models.DateTimeField(blank = False)
-    pais_nacimiento = models.ForeignKey(Paises, models.DO_NOTHING, db_column='pais_nacimiento')
+    creado = models.DateTimeField(blank = False) 
+    #pais_nacimiento = models.ForeignKey(Paises, models.DO_NOTHING, db_column='pais_nacimiento')
+    pais_nacimiento = models.ForeignKey(Paises, models.DO_NOTHING, choices = PAIS,db_column='pais_nacimiento')
 
     class Meta:
         #managed = False
@@ -198,7 +209,7 @@ class Personas(models.Model):
 
 class Usuarios(models.Model):
     id_usuarios = models.AutoField(primary_key=True)
-    id_persona = models.ForeignKey(Personas, models.DO_NOTHING, db_column='id_persona')
+    id_persona = models.ForeignKey(Personas, models.DO_NOTHING, db_column='id_persona', verbose_name='Cedula de ciudadanía')
     password = models.TextField()
     rol = models.TextField()
     activo = models.BooleanField()

@@ -1,5 +1,56 @@
 {% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+
+
+{% block miga_pan %}
+	 <li><a href="#">Inicio</a></li>
+    <li><a href="#">Noticias</a></li>
+    <li class="active">Lista</li>
+{% endblock miga_pan %}
+
+
+
+{% block js %}
+   <script type="text/javascript">
+        var idTabla = 'data-table';
+    </script>
+    <script src="{% static 'js/datatables/init_datatable.js' %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ form.media }}
+    <link href="{{STATIC_URL}}plugins/croppic/croppic.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}plugins/croppic/estilos_personalizados.css" rel="stylesheet">
+{% endblock %}
 
 {% block cuerpo %}
-
+	<div class="panel panel-success panel-center">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        {% block botones_panel %}
+                            <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-minus"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a> -->                      
+                        {% endblock botones_panel %}
+                    </div>
+                    <h4 class="panel-title">
+                        {% block titulo_panel %}
+                        Noticias
+                        {% endblock titulo_panel %}
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {% block contenido_panel %}
+								<img src="{%static 'img/male.png'%}" alt="">
+                            {% endblock contenido_panel %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 {% endblock %}

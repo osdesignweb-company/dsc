@@ -7,7 +7,7 @@ class PersonasFormularios(forms.ModelForm):
 		model = Personas
 		fields = ('id_persona', 'tipo_documento',
 					'nombre','primer_apellido',
-					'segundo_apellido','fecha_nacimiento','sexo','creado','pais_nacimiento')
+					'segundo_apellido','fecha_nacimiento','sexo','pais_nacimiento')
 		widgets = {
 			'nombre':forms.Textarea(attrs={'cols':50,'rows':1}),
 			'primer_apellido':forms.Textarea(attrs={'cols':50,'rows':1}),

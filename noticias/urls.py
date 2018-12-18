@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from .views import  NoticiaCreateView,NoticiaDetailView,NoticiaUpdateView,NoticiaCambioEstadoView
+from .views import  NoticiaCreateView,NoticiaDetailView,NoticiaUpdateView,NoticiaCambioEstadoView,NoticiaListView
 
 
 
