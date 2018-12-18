@@ -1,0 +1,149 @@
+
+
+body {
+    background: url(../img/back-escuelas.jpg) no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.content {
+    margin-bottom: 0 !important;
+}
+.acerca-de .btn-campista {
+    background: #EA2626;
+    margin-right: 10px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+.migapan a{
+    color: #FFFFFF;
+}
+.migapan.active{
+    text-decoration: underline;
+}
+.acerca-de{
+    height: 80px;
+    background: white;
+    position: relative;
+}
+.acerca-de > img{
+    width: 97px;
+    height: 67px;
+    float: left;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+.acerca-de > p{
+    float: left;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 28px;
+    margin-top: 27px;
+}
+.acerca-de > button, .acerca-de > a{
+    float: right;
+    margin-top: 21px;
+    margin-right: 30px;
+    background: white;
+    border: 1px solid #009688;
+}
+
+.acerca-de .cambiar-imagen{
+    opacity: 0;
+    width: 67px;
+    height: 67px;
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    z-index: 1;
+}
+.acerca-de .cambiar-imagen:hover{
+    opacity: 1;
+}
+.acerca-de .cambiar-imagen > button{
+    margin-top: 23px;
+    margin-left: 2px;
+}
+
+.back-important{background: url(../img/barra-cont-otros.jpg) no-repeat center center;}
+.fed-hijo{background: url(../img/barra-cont-fed.jpg) no-repeat center center;}
+.liga-hijo{background: url(../img/barra-cont-liga.jpg) no-repeat center center;}
+.club-hijo{background: url(../img/barra-cont-club.jpg) no-repeat center center;}
+.hijos-tenant{
+    height: 48px;
+    border-bottom: 1px solid;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.hijos-tenant > span{
+    margin-left: 20px;
+    margin-top: 10px;
+    display: inline-block;
+
+}
+.hijos-tenant .ver-rep{
+    margin-right: 25px;
+    margin-top: 11px;
+}
+.hijos-tenant .ver-list{
+    margin-right: 75px;
+    margin-top: 11px;
+
+}
+.hijos-tenant .btn{
+    margin-top: 0px;
+    margin-left: 20px;
+    border: 1px solid;
+ }
+@media (max-width: 540px) {
+    .hijos-tenant .ver-rep{
+        margin-right: 28px !important;
+        margin-left: 6px !important;
+    }
+    .acerca-de .btn-campista {
+        background: #EA2626;
+        margin-right: 0;
+        color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+        float: left;
+        margin-left: 30px;
+        margin-top: 2px;
+    }
+    .acerca-de > p {
+        margin-left: 28px;
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+}
+#owl-example .item{
+    text-align: center;
+    padding: 15px 10px;
+    max-width: 100%;
+    min-height: 220px;
+    border-right: 1px solid;
+}
+#owl-example .item img{
+    height: auto;
+    width: auto;
+    max-height: 120px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+}
+
+#owl-example p{
+    margin: 10px 0 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+}

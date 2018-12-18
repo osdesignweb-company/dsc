@@ -1,0 +1,199 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Deporte Social Comunitario</title>
+
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+  <link rel="stylesheet" href="{% static 'css/main.css'%}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+</head>
+
+
+
+<body>
+	<div class="container">
+        <!--header-->
+        <header class="site-header">
+            
+            <!--top header-->
+            <div class="top-header">
+                <div class="top-header-logo">
+                    <div class="logo-coldeportes">
+                        <img src="{% static 'img/sind-logo.PNG' %}" alt="logo sind">
+                    </div>
+                    <div class="logo-sind clearfix">
+                        <a href=""><img src="{% static 'img/sind-logo.PNG'%}" alt="logo sind"></a>
+                    </div>
+                </div>
+                <div class="top-header-info"> 
+                    <div class="ingreso">
+                        <form action="login">
+                            <input type="submit" value="Iniciar sesión" >
+                        </form>
+                    </div>
+                    <div class="menu-movil clearfix">
+                        <div class="burger">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <!--<div class="cross">
+                            <i class="fas fa-bars"></i>
+                        </div>-->
+                    </div>
+                </div>
+             </div><!--fin top header-->
+
+            <!--Navegador-->
+
+            <div class="navegador">
+                    <nav class="navegacion-principal" id="navegacion-principal">
+                        <ul>
+                            <li class=""><a href="#" target="_blanck">INICIO</a>
+                            <li class=""><a href="#contacto">NOTICIAS</a></li>
+                            <li class=""><a href="#">EVENTOS</a></li>
+                            <li class=""><a href="#">OTRO</a>
+                                <ul>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+            </div>
+            <!--navegador-->
+        </header>
+        </div>
+        <!--fin contenedor1-->
+        <!--lista lateral redes sociales-->
+        <div class="redes-lateral">
+            <a href="#" target="_blanck"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blanck"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blanck"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blanck"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+        <!--fin lista latral redes sociales-->
+        <!--título-->
+        <div class="titulo">
+            <h1>DEPORTE SOCIAL COMUNITARIO</h1>
+        </div>
+
+        <!--inicio hero-->
+        <!--
+        <div class="hero clearfix">
+            <ul class="hero-galeria">
+                <li><span>Image 01</span>
+                    <div>
+                    </div>
+                </li>
+                <li><span>Image 02</span>
+                    <div>
+                    </div>
+                </li>
+                <li><span>Image 03</span>
+                    <div>
+                    </div>
+                </li>
+                <li><span>Image 04</span>
+                    <div>
+                    </div>
+                </li>
+                <li><span>Image 05</span>
+                    <div>
+                    </div>
+                </li>
+                <li><span>Image 06</span>
+                    <div>
+                    </div>
+                </li>
+            </ul>
+        </div>-->
+
+        <!--fin hero-->
+        
+        <!--bloques de selección-->
+        <!--
+        <div class="contenedor-bloques clearfix">
+            <a href="" target="_blanck">
+                <div class="bloque-ecoimpulsa" id="bloque-ecoimpulsa">
+                </div>
+            </a>
+            
+            <a href="">
+                <div class="bloque-nosotros" id="bloque-nosotros">
+                    <h2>bloque1</h2>
+                </div>
+            </a>
+            <a href="">
+                <div class="bloque-proyectos" id="bloque-proyectos">
+                    <H2>bloque2</H2>
+                </div>
+            </a>
+            <a href="">
+                <div class="bloque-contacto" id="bloque-contacto">
+                    <h2>bloque3</h2>
+                </div>
+            </a>
+            
+        
+        </div>
+        -->
+        <!--fin contenedor bloques-->
+        
+        <!--fin bloques de selección-->
+        
+        {% block cuerpo %}
+        {% endblock %}
+  
+        
+        <!--inicio footer-->
+        {% block footer %}
+        <footer class="footer-sitio">
+            <div class="contenedor clearfix">
+                <div class="footer-logo">
+                    <img src="{%static 'img/logo.png'%}" alt="logo empresa"><br>
+                </div>
+                <div class="footer-redessociales">
+                    <h3><span>REDES SOCIALES</span></h3>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"
+                            aria-hidden="true"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-pinterest-square"
+                            aria-hidden="true"></i></a>
+                </div>
+                <div class="footer-informacion">
+                    <h3>Coldeportes Av. 68 No 55-65 conmutador 57-1-437 70 30</h3>
+                    <h3>Línea de Atención al Usuario: 01 8000 910237</h3>
+                    <h3>Línea gratuita Bogotá: 57-1- 2258745/ FAX 57-1 - 6300369</h3>
+                    <h3>Email de Contacto: contacto@coldeportes.gov.co</h3>
+                
+                </div>
+            </div>
+
+        </footer>
+        <!--fin footer-->
+        {% endblock  %}
+        
+        
+    </div>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+
+</body>
+

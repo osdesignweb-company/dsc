@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+{% block cuerpo %}
+{% load widget_tweaks %}
+
+<form method="post" novalidate>
+	{% csrf_token %}
+	{% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+ 	{% endfor %}
+
+	{% if form.non_field_errors %}
+    	<div class="alert alert-danger" role="alert">
+    		{% for error in form.non_field_errors %}
+    		{{ error }}
+    		{% endfor %}
+    	</div>
+  	{% endif %}
+  	<div class="container"><legend class="pull-left width-full"><h3>Información de Usuario</h3></legend></div>
+	
+  	{% for field in form.visible_fields %}
+  	<div class="container">
+
+  		{{ field.label_tag }}
+  		{% if form.is_bound %}
+  		{% if field.errors %}
+  		{% render_field field class="form-control is-invalid" %}
+  		{% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+        {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      	{% else %}
+      	{% render_field field class="form-control" %}
+      	{% endif %}
+
+      	{% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      	{% endif %}
+    </div>
+  	{% endfor %}
+  	<br/>
+  	<div class="container">	
+  	<button type="submit" class="btn btn-primary">Guardar</button>
+  	</div>
+</form>
+<br/>
+{% endblock cuerpo %}

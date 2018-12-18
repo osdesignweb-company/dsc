@@ -1,0 +1,154 @@
+{% load bootstrap3 %} 
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>Coldeportes Login</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link rel="icon" type="image/png" href="{% static 'img/favicon.ico'%}">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="{% static 'plugins/jquery-ui/themes/base/minified/jquery-ui.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'plugins/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'css/animate.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'css/style.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'css/style-responsive.min.css'%}" rel="stylesheet" />
+	<link href="{% static 'css/theme/default.css'%}" rel="stylesheet" id="theme" />
+	<link href="{% static 'frontend/css/login.css'%}" rel="stylesheet" id="logincss" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	{% block css %}
+    {% endblock css %}
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'plugins/pace/pace.min.js'%}"></script>
+	<!-- ================== END BASE JS ================== -->
+    <style>
+        .login .login-footer{
+            position: absolute;
+            top: 110%;
+            left: 40%;
+            right: 0;
+            width: 450px;
+            padding: 0 40px;
+            margin-left: -225px;
+            font-weight: 300;
+        }
+        #logo-login{
+            width: 70%;
+            height: 70%;
+        }
+        #foot-icon{
+            position: absolute;
+            right: -48px;
+            top: 4px;
+        }
+    </style>
+	{{form.media}}
+</head>
+<body class="pace-top">
+	<!-- begin #page-loader -->
+	
+	<!-- end #page-loader -->
+	
+	<div class="login-cover">
+	    <div class="login-cover-image">
+	    	
+	    </div>
+	</div>
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+	    <!-- begin login -->
+        <div class="containter-login">
+            <div class="login-container"></div>
+        </div>
+        <div class="login login-v2" data-pageload-addclass="animated fadeIn">
+            <!-- begin brand -->
+
+            <div class="login-header">
+                <div class="brand" style="color:black;">
+                    <img src="{% static 'frontend/img/logo-sind.png'%}" alt="Icono Coldeportes">
+                </div>
+                <div class="icon">
+                    <i style="color: #1d1919;" class="fa fa-sign-in"></i>
+                </div>
+            </div>
+            <!-- end brand -->
+            <div class="login-content">
+            	{% block contenido %}
+			    {% endblock %}
+            </div>
+            <div class="login-footer">
+                <div class="brand" style="color:black;">
+                    <img src="{% static  'img/logo_login.png'%}" alt="Coldeportes" id="logo-login">
+                </div>
+            </div>
+        </div>
+        <!-- end login -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'plugins/jquery/jquery-1.9.1.min.js'%}"></script>
+	<script src="{% static 'plugins/jquery/jquery-migrate-1.1.0.min.js'%}"></script>
+	<script src="{% static 'plugins/jquery-ui/ui/minified/jquery-ui.min.js'%}"></script>
+	<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js'%}"></script>
+	<!--[if lt IE 9]>
+		<script src="{% static 'crossbrowserjs/html5shiv.js'%}"></script>
+		<script src="{% static 'crossbrowserjs/respond.min.js'%}"></script>
+		<script src="{% static 'crossbrowserjs/excanvas.min.js'%}"></script>
+	<![endif]-->
+	<script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js'%}"></script>
+	<script src="{% static 'plugins/jquery-cookie/jquery.cookie.js'%}"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'js/login-v2.demo.min.js'%}"></script>
+	<script src="{% static 'js/apps.min.js'%}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+
+    {% block js %}
+        <script>
+        $(document).ready(function () {
+            var $alert = $("#form-login > div.alert");
+            console.log($alert.length);
+            if($alert.length != 0){
+                $("div.login-container").height("590px");
+            }
+            (function($){
+              $.event.special.destroyed = {
+                remove: function(o) {
+                  if (o.handler) {
+                    o.handler()
+                  }
+                }
+              }
+            })(jQuery)
+
+            $alert.bind('destroyed', function() {
+                $("div.login-container").height("487px");
+            })
+
+        });
+        </script>
+    {% endblock %}
+	<script>
+		$(document).ready(function() {
+			App.init();
+			LoginV2.init();
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
